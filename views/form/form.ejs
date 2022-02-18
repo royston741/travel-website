@@ -1,0 +1,61 @@
+<form class="form1" action="<%=link%>" method="post">
+    <h3>
+        <%= title%>
+    </h3>
+
+    <div class="travel-location">
+        <div>
+            <label for="lfrom">Depart from</label>
+            <span>
+                <input required type="text" id="lfrom" value="Mumbai" class="search1" autocomplete="off" name="deportFrom" >
+                <div class="results1">
+                </div>
+            </span>
+        </div>
+        <div>
+            <label for="lto">Going to</label>
+            <span>
+                <input type="text" id="lto" value="New Delhi" class="search2" autocomplete="off" name="goingTo" required>
+                <div class="results2">
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <div class="travel-date">
+        <div>
+            <label for="dfrom"> Departure Date</label>
+            <input type="date" name="departureDate" required>
+        </div>
+        <div>
+            <label for="dto"> Return Date</label>
+            <input type="date" name="returnDate">
+        </div>
+    </div>
+
+    <div class="travel-class">
+        <label for="lselect">Class</label>
+        <select id="lselect" name="travelClass">
+            <% type.forEach( (t)=>{ %>
+                <option>
+                    <%=t%>
+                </option>
+                <%})%>
+        </select>
+    </div>
+
+    <div class="travel-way">
+        <label for="lway">Travel type</label>
+        <select id="lway" name="travelWay">
+            <option>ONE WAY</option>
+            <option>ROUND TRIP</option>
+        </select>
+    </div>
+
+    <div class="travel-people">
+        <label for="lpeople">Travellers no.</label>
+        <input id='lpeople' type="number" name="noOfPeople" value="1" min="1">
+    </div>
+
+    <button type="submit">Search <%=title%></button>
+</form>

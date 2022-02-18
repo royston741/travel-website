@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div>
+    <a href="/" class="back">&larr;</a>
+        <div class="gradient"></div>
+        <div class="account_profile">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+        <div class="white">
+            <h3 class="profile_user_name">
+                <%=userName%>
+            </h3>
+            <div class="profile_email">
+                <%=email%>
+            </div>
+
+            <form action="/userProfile" method="post">
+                <button class="logout" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <h2 class="booking_head">Bookings</h2>
+    <div class="book_container">
+
+        <%bookings.forEach((book)=>{%>
+            <%if('tplane' in book){%>
+                <div class="book">
+                    <div class="book_img">
+                        <div>
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class='book_detail'>
+                        <div class="book_detail_1">
+                            <div>
+                                <p>
+                                    <%=book.travelname%>
+                                </p>
+                                <p>
+                                    <%=book.tplane%>
+                                </p>
+                            </div>
+                            <p>
+                                <%=book.travelClass%>
+                            </p>
+                        </div>
+                        <hr>
+                        <%if(book.travelReturnDate){%>
+                            <h4 class="book_return">Return date : <%=book.travelReturnDate%>
+                            </h4>
+                            <%}%>
+
+                                <div class="book_detail_2">
+                                    <div>
+                                        <div class="book_location">
+                                            <%=book.travelDeport%>
+                                        </div>
+                                        <div class="book_time">
+                                            <%=book.travelDeportTime%>
+                                        </div>
+                                        <div class="book_date">
+                                            <%=book.travelDeportdate%>
+                                        </div>
+                                    </div>
+                                    <span> &#9992; </span>
+                                    <div>
+                                        <div class="book_location">
+                                            <%=book.travelDestination%>
+                                        </div>
+                                        <div class="book_time">
+                                            <%=book.travelDestinationTie%>
+                                        </div>
+                                        <div class="book_date">
+                                            <%=book.travelDestinnationDate%>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <%}%>
+                    <%if('hotelName' in book){%>
+                        <div class="book">
+                            <div class="book_img">
+                                <div>
+                                    <i class="fa fa-bed" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class='book_detail'>
+                                <div class="book_hotel">
+                                    <h3>
+                                        <%=book.hotelName%>
+                                    </h3>
+                                    <p>
+                                        <%=book.hotelLocation%>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+                            <%if('holidayName' in book){%>
+                                <div class="book">
+                                    <div class="book_img">
+                                        <div>
+                                            <i class="fa fa-globe" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <div class='book_detail'>
+                                        <div class="book_hotel">
+                                            <h3>
+                                                <%=book.holidayName%>
+                                            </h3>
+                                            <p>
+                                                <%=book.holidayDuration%>
+                                            </p>
+                                            <p>
+                                                <%=book.holidayLocations%>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                                    <%if(book.travelname){%>
+                                        <%if(book.travelname.includes('bus')){%>
+                                            <div class="book">
+                                                <div class="book_img">
+                                                    <div>
+                                                        <i class="fa fa-bus" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class='book_detail'>
+                                                    <div class="book_detail_1">
+                                                        <div>
+                                                            <p>
+                                                                <%=book.travelname%>
+                                                                    <p>
+                                                        </div>
+                                                        <p>
+                                                            <%=book.travelClass%>
+                                                        </p>
+                                                    </div>
+                                                    <hr>
+                                                    <%if(book.travelReturnDate){%>
+                                                        <h4 class="book_return">Return date : <%=book.travelReturnDate%>
+                                                        </h4>
+                                                        <%}%>
+
+                                                            <div class="book_detail_2">
+                                                                <div>
+                                                                    <div class="book_location">
+                                                                        <%=book.travelDeport%>
+                                                                    </div>
+                                                                    <div class="book_time">
+                                                                        <%=book.travelDeportTime%>
+                                                                    </div>
+                                                                    <div class="book_date">
+                                                                        <%=book.travelDeportdate%>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <div class="book_location">
+                                                                        <%=book.travelDestination%>
+                                                                    </div>
+                                                                    <div class="book_time">
+                                                                        <%=book.travelDestinationTie%>
+                                                                    </div>
+                                                                    <div class="book_date">
+                                                                        <%=book.travelDestinnationDate%>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                            <%}%>
+
+                                                <%if(book.travelname.includes('express')){%>
+                                                    <div class="book">
+                                                        <div class="book_img">
+                                                            <div>
+                                                                <i class="fa fa-train" aria-hidden="true"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class='book_detail'>
+                                                            <div class="book_detail_1">
+                                                                <div>
+                                                                    <p>
+                                                                        <%=book.travelname%>
+                                                                            <p>
+                                                                </div>
+                                                                <p>
+                                                                    <%=book.travelClass%>
+                                                                </p>
+                                                            </div>
+                                                            <hr>
+                                                            <%if(book.travelReturnDate){%>
+                                                                <h4 class="book_return">Return date :
+                                                                    <%=book.travelReturnDate%>
+                                                                </h4>
+                                                                <%}%>
+
+                                                                    <div class="book_detail_2">
+                                                                        <div>
+                                                                            <div class="book_location">
+                                                                                <%=book.travelDeport%>
+                                                                            </div>
+                                                                            <div class="book_time">
+                                                                                <%=book.travelDeportTime%>
+                                                                            </div>
+                                                                            <div class="book_date">
+                                                                                <%=book.travelDeportdate%>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div>
+                                                                            <div class="book_location">
+                                                                                <%=book.travelDestination%>
+                                                                            </div>
+                                                                            <div class="book_time">
+                                                                                <%=book.travelDestinationTie%>
+                                                                            </div>
+                                                                            <div class="book_date">
+                                                                                <%=book.travelDestinnationDate%>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                        </div>
+                                                    </div>
+                                                    <%}%>
+
+                                                        <%}%>
+                                                            <%}) %>
+
+
+    </div>
+
+    <script type="module" src="/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<%- include('partials/header'); -%>
+    <%- include('booking-links/links'); -%>
+
+        <div class="booking-type-container">
+
+            <%- include('form/hotelForm'); -%>
+
+
+                <div class="result-box hotel-box">
+                    <% if(!results){%>
+                        <%- include('defination'); -%>
+                            <% }else{%>
+                                <%results.forEach((result)=>{%>
+                                    <form action='<%=link%>' method="post">
+
+                                        <div class="result hotels">
+                                            <img src="<%=result.hotelImg%>" alt="">
+                                            <div class="hotels_detail">
+                                                <div>
+                                                    <input type="text" class='hotelName' value="<%=result.hotelName%>"
+                                                        name="hotelName">
+                                                    <input type="text" 
+                                                    value="<%=result.hotelLocation%>" name="hotelLocation">
+                                                </div>
+                                                <p class="nights">For 2 nights</p>
+                                                <p>
+                                                    <%=result.hotelRating%><i class="fa fa-star" aria-hidden="true"></i>
+                                                </p>
+                                                <p class="hotelPrice">
+                                                    &#8377; <%=result.hotelPrice%>
+                                                </p>
+                                            </div>
+                                            <button type="submit">Book</button>
+                                        </div>
+                                    </form>
+
+                                    <%})%>
+                                        <%}%>
+
+
+
+
+
+                </div>
+        </div>
+
+
+        <%- include('partials/footer'); -%>

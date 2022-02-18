@@ -1,0 +1,103 @@
+<%- include('partials/header'); -%>
+
+    <%- include('booking-links/links'); -%>
+
+        <div class="booking-type-container">
+
+            <%- include('form/form'); -%>
+
+                <div class="result-box">
+                    <% if(!results){%>
+                        <%- include('defination'); -%>
+                            <% }else{%>
+                                <%results.forEach((result)=>{%>
+                                    <form action="<% link %>" method="post" class="form2">
+                                        <div class="result">
+                                            <div class="flight-header">
+                                                <img class="flogo" src="<%=result.flightImg %>" alt="">
+                                                <div>
+                                                    <span>
+                                                        <h5>
+                                                            <input class="tname" name="travelname" type="text"
+                                                                value="<%=result.flightName%>">
+                                                        </h5>
+                                                    </span>
+                                                    <span class="small">
+                                                        <input type="text" name="travelClass" value="<%=result.flightClass%>">
+                                                    </span>
+
+                                                    <p>
+                                                        <input name="tplane" type="text" value="<%=result.flightPlane%>">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="other">
+                                                <%if(result.returnDate){%>
+                                                    <div>
+                                                        <label for="return">Return Date :</label>
+                                                        <input id="return" name="travelReturnDate" type="text"
+                                                            value="<%=result.returnDate%>">
+                                                    </div>
+                                                    <%}%>
+                                                        <h3 class="fprice"> &#8377;<%=result.fprice%>
+                                                        </h3>
+                                            </div>
+                                            <div class="flight-footer">
+                                                <div class="fdetail">
+                                                    <p class="fl">
+                                                        <input type="text" name="travelDeport" value="<%=result.flightFrom%>">
+                                                    </p>
+                                                    <h3>
+                                                        <input type="text" name="travelDeportTime" value="<%=result.from%>">
+                                                    </h3>
+                                                    <h4>
+                                                        <input type="" name="travelDeportdate" value="<%=result.departureDate%>">
+                                                    </h4>
+                                                    <p class="ap"></p>
+                                                </div>
+
+                                                <div class="frepresent">
+                                                    <p>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <%=result.timeGap%>hr
+                                                    </p>
+                                                    <p>
+                                                        <span>&#x2708;</span>
+                                                    </p>
+                                                    <p class="stops">
+                                                        <%=result.stops%>
+                                                    </p>
+                                                </div>
+
+                                                <div class="fdetail">
+                                                    <p class="fl">
+                                                        <input type="text" name="travelDestination" value="<%=result.flightTo%>">
+                                                    </p>
+                                                    <h3>
+                                                        <input type="text" name="travelDestinationTie" value="<%=result.to%>">
+                                                    </h3>
+                                                    <h4>
+                                                        <input type="text" name="travelDestinnationDate" value="<%=result.departureDate%> ">
+                                                    </h4>
+                                                    <p class="ap"></p>
+                                                </div>
+
+
+                                                <div class="fbtn">
+                                                    <button type="submit">Book Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+                                    <%})%>
+                                        <%}%>
+
+                </div>
+        </div>
+
+
+
+        <%- include('partials/footer'); -%>

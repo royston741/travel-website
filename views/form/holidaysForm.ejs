@@ -1,0 +1,26 @@
+<form class="form1" action="<%=link%>" method="post">
+    <h3>
+        <%= title%>
+    </h3>
+
+    <div class="travel-location">
+        <div>
+            <label for="lfrom">Depart from</label>
+            <span>
+                <input required type="text" id="lfrom" value="Mumbai" class="search1" autocomplete="off" name="deportFrom" >
+                <div class="results1">
+                </div>
+            </span>
+        </div>
+        <div>
+            <label for="lto">Going to</label>
+            <span>
+                <input d type="text" id="lto" value="New Delhi" class="search2" autocomplete="off" name="goingTo" required>
+                <div class="results2">
+                </div>
+            </span>
+        </div>
+    </div>
+    
+    <button type="submit">Search <%=title%></button>
+</form>

@@ -1,0 +1,77 @@
+<%- include('partials/header'); -%>
+    <%- include('booking-links/links'); -%>
+
+
+        <div class="booking-type-container">
+
+            <%- include('form/form'); -%>
+
+
+            <div class="result-box">
+                <% if(!results){%>
+                    <%- include('defination'); -%>
+                        <% }else{%>
+                            <%results.forEach((result)=>{%>
+                                <form action="<% link %>" method="post" class="form2">
+                                    <div class="result">
+                                        <div class="flight-header fl">
+                                            <input class="tname train_name" name="travelname" type="text"
+                                                value="<%=result.busName%>">
+                                            <input type="text" name="travelClass" value="<%=result.busClass%>">
+                                        </div>
+                                        <hr>
+                                        <div class="other">
+                                            <%if(result.returnDate){%>
+                                                <div>
+                                                    <label for="return">Return Date :</label>
+                                                    <input id="return" name="travelReturnDate" type="text"
+                                                        value="<%=result.returnDate%>">
+                                                </div>
+                                                <%}%>
+                                                    <h3 class="fprice"> &#8377;<%=result.tprice%>
+                                                    </h3>
+                                        </div>
+                                        <div class="flight-footer train-footer">
+                                            <div class="fdetail">
+                                                <p class="fl">
+                                                    <input type="text" name="travelDeport" value="<%=result.busFrom%>">
+                                                </p>
+                                                <h3>
+                                                    <input type="text" name="travelDeportTime" value="<%=result.from%>">
+                                                </h3>
+                                                <h4>
+                                                    <input type="" name="travelDeportdate" value="<%=result.departureDate%>">
+                                                </h4>
+                                                <p class="ap"></p>
+                                            </div>
+
+                                            <div class="fdetail tt">
+                                                <p class="fl">
+                                                    <input type="text" name="travelDestination" value="<%=result.busTo%>">
+                                                </p>
+                                                <h3>
+                                                    <input type="text" name="travelDestinationTie" value="<%=result.to%>">
+                                                </h3>
+                                                <h4>
+                                                    <input type="text" name="travelDestinnationDate" value="<%=result.departureDate%>">
+                                                </h4>
+                                                <p class="ap"></p>
+                                            </div>
+
+                                            <div class="train_btn">
+                                                <button type="submit">Book Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </form>
+                                <%})%>
+                                    <%}%>
+
+            </div>
+        </div>
+
+
+
+        <%- include('partials/footer'); -%>

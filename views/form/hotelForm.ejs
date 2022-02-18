@@ -1,0 +1,37 @@
+<form class="form1" action="<%=link%>" method="post">
+    <h3>
+        <%= title%>
+    </h3>
+
+    <div class="travel-location loc">
+        <div>
+            <label for="lfrom">Select city</label>
+            <span>
+                <input required type="text" id="lfrom" value="Mumbai" class="search1" autocomplete="off"
+                    name="Select_city">
+                <div class="results1">
+                </div>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="travel-date">
+        <div>
+            <label for="dfrom"> Check-in</label>
+            <input type="date" name="Check_in" required>
+        </div>
+        <div>
+            <label for="dto"> Check-out</label>
+            <input type="date" name="Check_out">
+        </div>
+    </div>
+
+    <div class="travel-people">
+        <label for="lpeople">Travellers no.</label>
+        <input id='lpeople' type="number" name="noOfPeople" value="1" min="1">
+        <p>2 Travellers , 1 Room</p>
+    </div>
+
+    <button type="submit">Search <%=title%></button>
+</form>

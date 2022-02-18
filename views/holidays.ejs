@@ -1,0 +1,48 @@
+<%- include('partials/header'); -%>
+    <%- include('booking-links/links'); -%>
+
+        <div class="booking-type-container">
+
+            <%- include('form/holidaysForm'); -%>
+
+
+                <div class="result-box hotel-box">
+                    <% if(!results){%>
+                        <%- include('defination'); -%>
+                            <% }else{%>
+                                <%results.forEach((result)=>{%>
+                                    <form action='<%=link%>' method="post">
+                                        <div class="result holiday">
+                                            <img src="<%=result.holidayImg%>" alt="">
+                                            <div class="value">
+                                                <input 
+                                                name="holidayName"
+                                                type="text" class="holidayName" value="<%=result.holidayName%>  <%=result.holidayTo%>"
+                                                >
+                                                <input  type="text" value="<%=result.holidayTime%> Nights" class="holidayTime" 
+                                                name="holidayDuration">
+                                                <input  type="text" value="<%=result.holidayFrom%>  &rarr; <%=result.holidayTo%>" class="holidayLocations"
+                                                name="holidayLocations"
+                                                >
+                                                <div class="items">
+                                                    <p><i class="fa fa-cutlery" aria-hidden="true"></i>Meals</p>
+                                                    <p><i class="fa fa-plane" aria-hidden="true"></i>Flights</p>
+                                                    <p><i class="fa fa-bed" aria-hidden="true"></i>Hotels</p>
+                                                    <p><i class="fa fa-taxi" aria-hidden="true"></i>Taxi</p>
+                                                </div>
+                                                <div class='holidayPrice';>	&#8377; <%=result.holidayPrice%></div>
+                                            </div>
+                                            <button type="submit">Book</button>
+                                        </div>
+                                    </form>
+                                    <%})%>
+                                        <%}%>
+                    
+                                      
+
+
+                </div>
+        </div>
+
+
+        <%- include('partials/footer'); -%>

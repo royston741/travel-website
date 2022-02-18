@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- slide css  -->
+    <link rel="stylesheet" href="/slide/dist/css/themes/splide-sea-green.min.css">
+
+    <!-- css  -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <div class="logo_container">
+                <h1 class="logo">royTours</h1>
+                <div class="hamburger_menu">
+                    <div class="bars"></div>
+                    <div class="bars"></div>
+                    <div class="bars"></div>
+                </div>
+            </div>
+
+            <div class="mobile_view">
+
+                <ul class="menu_links">
+
+                    <a href="/">
+                        <li class="menu_link <%=home%>">Home</li>
+                    </a>
+
+                    <a href="/bookings/flights">
+                        <li class="menu_link <%=bookings%>">Bookings</li>
+                    </a>
+
+                    <a href="/about">
+                        <li class="menu_link <%=about%>">About</li>
+                    </a>
+
+                    <a href="/contact">
+                        <li class="menu_link <%=contact%>">Contact</li>
+                    </a>
+                </ul>
+
+                <%if(isLogged){%>
+                    <a class="logged" href='/userProfile'>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <p>
+                            <%=userProfileName%>
+                        </p>
+                    </a>
+                    <%}else{%>
+                        <div class="account">
+
+                            <div class="account_holder">
+                                My Account
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </div>
+
+                            <ul class="log_sign">
+                                <li class="log_sign_user">
+                                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                </li>
+                                <li class="log_sign_btns">
+                                    <a href="/login">
+                                        <button class="log_btn btn">
+                                            Login
+                                        </button>
+                                    </a>
+                                    <a href="/signin">
+                                        <button class="sign_btn btn">
+                                            Sign Up
+                                        </button>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <% }%>
+
+
+            </div>
+
+        </nav>
+
+    </header>
